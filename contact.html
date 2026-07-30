@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact & Request a Quotation — NyumbHUTni</title>
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand"><a href="index.html"><img src="assets/logo.png" alt="NyumbHUTni logo" class="logo" /></a></div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Request a Quotation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 id="contact">Contact Us</h1>
+    <p>Address: [Your address here] • Phone: +254 7xx xxx xxx • Email: sales@nyumbhutni.example</p>
+
+    <section class="forms">
+      <div class="form-card">
+        <h2>Request a Quotation</h2>
+        <!-- Set action to a Formspree URL or your server endpoint. -->
+        <form id="quoteForm" action="https://formspree.io/f/your_form_id" method="POST">
+          <label>
+            Name *
+            <input name="name" type="text" required />
+          </label>
+
+          <label>
+            Company
+            <input name="company" type="text" />
+          </label>
+
+          <label>
+            Email *
+            <input name="email" type="email" required />
+          </label>
+
+          <label>
+            Phone *
+            <input name="phone" type="tel" required />
+          </label>
+
+          <label>
+            Product(s) of interest
+            <input name="product" id="productInput" type="text" placeholder="Product name(s)" />
+          </label>
+
+          <label>
+            Quantity / Unit
+            <input name="quantity" type="text" />
+          </label>
+
+          <label>
+            Delivery location
+            <input name="delivery" type="text" />
+          </label>
+
+          <label>
+            Required delivery date
+            <input name="date" type="date" />
+          </label>
+
+          <label>
+            Additional notes
+            <textarea name="notes"></textarea>
+          </label>
+
+          <label class="checkbox">
+            <input name="consent" type="checkbox" required /> I agree to be contacted about this request.
+          </label>
+
+          <p>
+            <button type="submit" class="btn">Send Request</button>
+            <span id="quoteStatus" class="status"></span>
+          </p>
+        </form>
+      </div>
+
+      <div class="form-card">
+        <h2>General Contact</h2>
+        <form id="contactForm" action="https://formspree.io/f/your_form_id" method="POST">
+          <label>
+            Name *
+            <input name="name" type="text" required />
+          </label>
+          <label>
+            Email *
+            <input name="email" type="email" required />
+          </label>
+          <label>
+            Subject
+            <input name="subject" type="text" />
+          </label>
+          <label>
+            Message
+            <textarea name="message" required></textarea>
+          </label>
+          <p><button type="submit" class="btn">Send Message</button> <span id="contactStatus" class="status"></span></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year-foot2"></span> NyumbHUTni Limited</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

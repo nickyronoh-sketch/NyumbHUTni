@@ -1,0 +1,214 @@
+/* NyumbHUTni website styles
+   Brand colours taken from the logo: earth brown + water blue */
+:root {
+  --brown: #a9552a;
+  --brown-dark: #8a4320;
+  --blue: #0b88d1;
+  --blue-light: #e8f4fb;
+  --text: #222222;
+  --muted: #5f6368;
+  --bg: #ffffff;
+  --bg-soft: #f7f5f2;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--blue); }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  background: #fff;
+  border-bottom: 3px solid var(--brown);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.logo {
+  height: 64px;
+  width: auto;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.main-nav a:hover {
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--brown) 0%, var(--brown-dark) 100%);
+  color: #fff;
+  padding: 70px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  line-height: 1.25;
+  margin: 0 0 16px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 680px;
+  margin: 0 auto 20px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  background: var(--blue);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 6px;
+  border: 2px solid var(--blue);
+  margin: 4px;
+}
+
+.btn:hover { background: #086fab; border-color: #086fab; }
+
+.btn.ghost {
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+
+.btn.ghost:hover { background: rgba(255, 255, 255, 0.15); }
+
+.btn.small { padding: 8px 14px; font-size: 0.9rem; margin: 0; }
+
+/* ---------- Feature boxes ---------- */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.feature {
+  background: var(--bg-soft);
+  border-top: 4px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.feature h3 { margin-top: 0; color: var(--brown); }
+.feature p { margin-bottom: 0; color: var(--muted); }
+
+/* ---------- Product cards ---------- */
+.sample-products { padding-top: 30px; padding-bottom: 60px; }
+
+.sample-products h2 {
+  text-align: center;
+  color: var(--brown);
+  font-size: 1.8rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding-bottom: 16px;
+}
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  background: var(--bg-soft);
+}
+
+.card h4, .card p { padding: 0 16px; }
+.card h4 { margin: 14px 0 6px; font-size: 1.15rem; }
+.card p { color: var(--muted); margin: 0 0 12px; }
+
+/* ---------- Forms (for the contact / quotation page) ---------- */
+form { display: grid; gap: 12px; max-width: 600px; }
+label { font-weight: 600; }
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font: inherit;
+}
+button {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: #2b2b2b;
+  color: #ddd;
+  text-align: center;
+  padding: 24px 0;
+  font-size: 0.9rem;
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 640px) {
+  .header-inner { justify-content: center; }
+  .main-nav { justify-content: center; }
+  .logo { height: 52px; }
+  .hero { padding: 50px 0; }
+  .hero h1 { font-size: 1.6rem; }
+}

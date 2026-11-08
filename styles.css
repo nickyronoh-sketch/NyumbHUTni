@@ -212,3 +212,20 @@ button {
   .hero { padding: 50px 0; }
   .hero h1 { font-size: 1.6rem; }
 }
+
+/* ---------- Footer social links ---------- */
+.social {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 10px 14px; margin-bottom: 14px;
+}
+.social-label { width: 100%; font-weight: 600; color: #fff; margin-bottom: 2px; }
+.social-link {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  color: #fff; padding: 8px 14px; border-radius: 22px; font-weight: 600; font-size: 0.9rem;
+  transition: transform .15s ease, opacity .15s ease;
+}
+.social-link:hover { transform: translateY(-2px); opacity: .9; }
+.social-link svg { width: 18px; height: 18px; fill: currentColor; }
+.social-link.whatsapp { background: #1f9e4f; }
+.social-link.facebook { background: #1877f2; }
+.social-link.linkedin { background: #0a66c2; }

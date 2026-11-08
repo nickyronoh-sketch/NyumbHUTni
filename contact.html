@@ -23,13 +23,15 @@
 
   <main class="container">
     <h1 id="contact">Contact Us</h1>
-    <p>Address: [Your address here] • Phone: +254 7xx xxx xxx • Email: sales@nyumbhutni.example</p>
+    <p><strong>Shop No. B05</strong>, Opposite NCPB Stores, Bomet, Kenya<br />
+       Phone: <a href="tel:+254702468500">+254 702 468 500</a> • Email: <a href="mailto:info@nyumbhutni.co.ke">info@nyumbhutni.co.ke</a></p>
 
     <section class="forms">
       <div class="form-card">
         <h2>Request a Quotation</h2>
-        <!-- Set action to a Formspree URL or your server endpoint. -->
-        <form id="quoteForm" action="https://formspree.io/f/your_form_id" method="POST">
+        <form id="quoteForm" action="https://formspree.io/f/xpppebna" method="POST">
+          <input type="hidden" name="_subject" value="New quotation request — NyumbHUTni website" />
+          <input type="hidden" name="form" value="Request a Quotation" />
           <label>
             Name *
             <input name="name" type="text" required />
@@ -88,7 +90,9 @@
 
       <div class="form-card">
         <h2>General Contact</h2>
-        <form id="contactForm" action="https://formspree.io/f/your_form_id" method="POST">
+        <form id="contactForm" action="https://formspree.io/f/xpppebna" method="POST">
+          <input type="hidden" name="_subject" value="New message — NyumbHUTni website" />
+          <input type="hidden" name="form" value="General Contact" />
           <label>
             Name *
             <input name="name" type="text" required />
@@ -113,7 +117,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <span id="year-foot2"></span> NyumbHUTni Limited</p>
+      <p>&copy; <span id="year"></span> NyumbHUTni Limited</p>
     </div>
   </footer>
 

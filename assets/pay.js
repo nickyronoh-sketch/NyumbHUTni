@@ -8,12 +8,17 @@
  * Google Sheet, so you can change a price without touching the website.
  */
 var NH_PAYMENTS = {
-  enabled: false,
-  endpoint: ''
+  enabled: true,
+  endpoint: 'https://script.google.com/macros/s/AKfycbxkvbLiv6Ip-_6Nx_nN5cUoEGOT6Fv3ppi-fC3hS9bdgRRP9cMbPcQBoLAKBPTI3MxZsA/exec',
+  // testOnly: true  -> buttons only appear when the page address ends in ?paytest
+  //                    (e.g. nyumbhutni.co.ke/products.html?paytest), so customers don't see them yet.
+  // testOnly: false -> buttons appear for everyone (use when going live).
+  testOnly: true
 };
 
 (function () {
   if (!NH_PAYMENTS.enabled || !NH_PAYMENTS.endpoint) return;
+  if (NH_PAYMENTS.testOnly && window.location.search.indexOf('paytest') === -1) return;
 
   var cards = document.querySelectorAll('[data-pay-id]');
   if (!cards.length) return;

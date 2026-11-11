@@ -41,6 +41,38 @@
     .jump { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; }
     .jump a { color: #fff; border: 1px solid rgba(255,255,255,0.7); border-radius: 20px; padding: 6px 14px; text-decoration: none; }
     .jump a:hover { background: rgba(255,255,255,0.15); }
+    /* Collapsible categories */
+    .cat { border: 1px solid #e8e2dc; border-radius: var(--radius); background: #fff; overflow: hidden; }
+    .cat summary {
+      list-style: none; cursor: pointer; display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; background: var(--bg-soft); border-left: 6px solid var(--brown);
+    }
+    .cat summary::-webkit-details-marker { display: none; }
+    .cat summary:hover { background: #f1ece6; }
+    .cat summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+    .cat-text { flex: 1; }
+    .cat-text h2 { margin: 0 0 4px !important; }
+    .cat-text .intro { display: block; margin: 0 !important; font-size: 0.95rem; }
+    .cat-count {
+      flex: none; background: var(--brown); color: #fff; border-radius: 20px;
+      padding: 4px 12px; font-size: 0.85rem; font-weight: 600; white-space: nowrap;
+    }
+    .chev {
+      flex: none; width: 14px; height: 14px; border-right: 3px solid var(--brown); border-bottom: 3px solid var(--brown);
+      transform: rotate(45deg); transition: transform .2s ease; margin: -6px 4px 0 0;
+    }
+    .cat[open] .chev { transform: rotate(-135deg); margin-top: 6px; }
+    .cat-body { padding: 24px; }
+    .category, .more { padding-top: 24px; }
+    .more { padding-bottom: 60px; }
+    .cat-tools { display: flex; justify-content: flex-end; gap: 10px; padding-top: 30px; }
+    .cat-tools button { background: none; border: 1px solid var(--brown); color: var(--brown); border-radius: 20px; padding: 6px 14px; font-weight: 600; cursor: pointer; font-size: 0.9rem; }
+    .cat-tools button:hover { background: var(--brown); color: #fff; }
+    @media (max-width: 640px) {
+      .cat summary { flex-wrap: wrap; padding: 16px; gap: 10px; }
+      .cat-text { flex-basis: 100%; }
+      .cat-body { padding: 16px; }
+    }
   </style>
 </head>
 <body>
@@ -74,9 +106,19 @@
     </section>
 
     <!-- ============ WATER PURIFICATION ============ -->
+    <div class="container cat-tools">
+      <button type="button" id="openAll">Show all products</button>
+      <button type="button" id="closeAll">Hide all</button>
+    </div>
+
     <section class="category container" id="water">
-      <h2>Water Purification & Treatment</h2>
-      <p class="intro">Water filtration and purification systems for clean and safe drinking water at home, at work and in institutions.</p>
+      <details class="cat">
+        <summary>
+          <span class="cat-text"><h2>Water Purification & Treatment</h2><span class="intro">Water filtration and purification systems for clean and safe drinking water at home, at work and in institutions.</span></span>
+          <span class="cat-count">3 products</span>
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="cat-body">
       <div class="grid">
 
         <article class="card" data-pay-id="water-filter">
@@ -104,12 +146,19 @@
         </article>
 
       </div>
+        </div>
+      </details>
     </section>
 
     <!-- ============ SANITATION ============ -->
     <section class="category container" id="sanitation">
-      <h2>Sanitation Solutions</h2>
-      <p class="intro">SATO toilet products that make pit latrines cleaner, safer and more comfortable, with fewer smells and flies.</p>
+      <details class="cat">
+        <summary>
+          <span class="cat-text"><h2>Sanitation Solutions</h2><span class="intro">SATO toilet products that make pit latrines cleaner, safer and more comfortable, with fewer smells and flies.</span></span>
+          <span class="cat-count">3 products</span>
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="cat-body">
       <div class="grid">
 
         <article class="card" data-pay-id="sato-pan">
@@ -137,12 +186,19 @@
         </article>
 
       </div>
+        </div>
+      </details>
     </section>
 
     <!-- ============ MORE SOLUTIONS ============ -->
     <section class="more container" id="more">
-      <h2>More Solutions</h2>
-      <p class="intro">Ask us about any of these and we will help you find the right option.</p>
+      <details class="cat">
+        <summary>
+          <span class="cat-text"><h2>More Solutions</h2><span class="intro">Ask us about any of these and we will help you find the right option.</span></span>
+          <span class="cat-count">5 solutions</span>
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="cat-body">
       <div class="grid">
         <div class="more-item">
           <h3>Water Pumping & Supply</h3>
@@ -170,6 +226,8 @@
           <a class="btn small" href="contact.html?product=Branding">Ask Us</a>
         </div>
       </div>
+        </div>
+      </details>
     </section>
   </main>
 
@@ -194,6 +252,27 @@
     </div>
   </footer>
 
+  <script>
+    // Collapsible product categories
+    (function () {
+      var cats = document.querySelectorAll('details.cat');
+      function openFromHash() {
+        if (!location.hash) return;
+        var sec = document.querySelector(location.hash);
+        var d = sec && sec.querySelector('details.cat');
+        if (d) { d.open = true; sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      }
+      window.addEventListener('hashchange', openFromHash);
+      document.querySelectorAll('.jump a').forEach(function (a) {
+        a.addEventListener('click', function () { setTimeout(openFromHash, 0); });
+      });
+      openFromHash();
+      document.getElementById('openAll').addEventListener('click', function () { cats.forEach(function (d) { d.open = true; }); });
+      document.getElementById('closeAll').addEventListener('click', function () { cats.forEach(function (d) { d.open = false; }); });
+      // Test mode for payments: show everything so the buttons are visible
+      if (location.search.indexOf('paytest') !== -1) cats.forEach(function (d) { d.open = true; });
+    })();
+  </script>
   <script src="app.js"></script>
   <script src="assets/pay.js"></script>
 </body>

@@ -16,6 +16,16 @@
   <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NyumbHUTni" />
+  <meta property="og:title" content="Water Filters & SATO Toilets in Bomet — NyumbHUTni Products" />
+  <meta property="og:description" content="Water filters, SATO sanitation products and other water, sanitation and hygiene solutions from NyumbHUTni, Bomet, Kenya." />
+  <meta property="og:url" content="https://nyumbhutni.co.ke/products.html" />
+  <meta property="og:image" content="https://nyumbhutni.co.ke/assets/share-preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="NyumbHUTni — water, sanitation and hygiene products in Bomet, Kenya" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://nyumbhutni.co.ke/products.html" />
   <link rel="stylesheet" href="styles.css" />
   <style>
@@ -80,6 +90,9 @@
     .brand-list li { padding: 6px 0 6px 28px; position: relative; }
     .brand-list li::before { content: "✔"; color: var(--blue); position: absolute; left: 4px; font-weight: 700; }
     @media (max-width: 760px) { .brand-body { grid-template-columns: 1fr; } }
+    .card, .more-item { scroll-margin-top: 140px; }
+    @keyframes flash { 0%,100% { box-shadow: 0 0 0 0 rgba(11,136,209,0); } 20%,70% { box-shadow: 0 0 0 5px rgba(11,136,209,.75); } }
+    .flash { animation: flash 2.4s ease; }
   </style>
 </head>
 <body>
@@ -129,7 +142,7 @@
         <div class="cat-body">
       <div class="grid">
 
-        <article class="card" data-pay-id="water-filter">
+        <article class="card" id="water-filter" data-pay-id="water-filter">
           <img src="assets/water-filter.png" alt="NyumbHUTni water filter" />
           <span class="tag">Water Purification</span>
           <h4>NyumbHUTni Water Filter</h4>
@@ -137,7 +150,7 @@
           <p><a class="btn small" href="contact.html?product=NyumbHUTni%20Water%20Filter">Buy</a></p>
         </article>
 
-        <article class="card" data-pay-id="dispenser-filter">
+        <article class="card" id="dispenser-filter" data-pay-id="dispenser-filter">
           <img src="assets/dispenser-filter.jpg" alt="Dispenser mineral water filter" />
           <span class="tag">Water Purification</span>
           <h4>Dispenser Mineral Filter</h4>
@@ -145,7 +158,7 @@
           <p><a class="btn small" href="contact.html?product=Dispenser%20Mineral%20Filter">Buy</a></p>
         </article>
 
-        <article class="card" data-pay-id="ro-purifier">
+        <article class="card" id="ro-purifier" data-pay-id="ro-purifier">
           <img src="assets/RO%20filter%2002.png" alt="Reverse osmosis (RO) water filter" />
           <span class="tag">Water Purification</span>
           <h4>RO Water Purifier</h4>
@@ -169,7 +182,7 @@
         <div class="cat-body">
       <div class="grid">
 
-        <article class="card" data-pay-id="sato-pan">
+        <article class="card" id="sato-pan" data-pay-id="sato-pan">
           <img src="assets/Sato%20pan.webp" alt="SATO pan" />
           <span class="tag">Sanitation</span>
           <h4>SATO Pan</h4>
@@ -177,7 +190,7 @@
           <p><a class="btn small" href="contact.html?product=SATO%20Pan">Buy</a></p>
         </article>
 
-        <article class="card" data-pay-id="sato-flex">
+        <article class="card" id="sato-flex" data-pay-id="sato-flex">
           <img src="assets/Sato%20flex.webp" alt="SATO Flex" />
           <span class="tag">Sanitation</span>
           <h4>SATO Flex</h4>
@@ -185,7 +198,7 @@
           <p><a class="btn small" href="contact.html?product=SATO%20Flex">Buy</a></p>
         </article>
 
-        <article class="card" data-pay-id="sato-stool">
+        <article class="card" id="sato-stool" data-pay-id="sato-stool">
           <img src="assets/Sato%20stool.jpg" alt="SATO stool" />
           <span class="tag">Sanitation</span>
           <h4>SATO Stool</h4>
@@ -193,7 +206,7 @@
           <p><a class="btn small" href="contact.html?product=SATO%20Stool">Buy</a></p>
         </article>
 
-        <article class="card" data-pay-id="teepee-brush-set">
+        <article class="card" id="teepee-brush-set" data-pay-id="teepee-brush-set">
           <img src="assets/teepee-toilet-brush-set.jpg" alt="Teepee toilet brush and bowl set" />
           <span class="tag">Sanitation</span>
           <h4>Teepee Toilet Brush &amp; Bowl Set</h4>
@@ -216,22 +229,22 @@
         </summary>
         <div class="cat-body">
       <div class="grid">
-        <div class="more-item">
+        <div class="more-item" id="water-pumping">
           <h3>Water Pumping & Supply</h3>
           <p>Pumps and accessories for domestic, commercial and institutional use.</p>
           <a class="btn small" href="contact.html?product=Water%20Pumping">Ask Us</a>
         </div>
-        <div class="more-item">
+        <div class="more-item" id="hygiene-products">
           <h3>Hygiene Products</h3>
           <p>Practical hygiene products for cleaner, safer homes and workplaces.</p>
           <a class="btn small" href="contact.html?product=Hygiene%20Products">Ask Us</a>
         </div>
-        <div class="more-item">
+        <div class="more-item" id="solar-solutions">
           <h3>Solar Solutions</h3>
           <p>Solar-powered systems for energy access and water-related systems.</p>
           <a class="btn small" href="contact.html?product=Solar%20Solutions">Ask Us</a>
         </div>
-        <div class="more-item">
+        <div class="more-item" id="water-quality-testing">
           <h3>Water Quality Testing</h3>
           <p>Know what's in your water and choose the right treatment.</p>
           <a class="btn small" href="contact.html?product=Water%20Quality%20Testing">Ask Us</a>
@@ -294,9 +307,21 @@
       var cats = document.querySelectorAll('details.cat');
       function openFromHash() {
         if (!location.hash) return;
-        var sec = document.querySelector(location.hash);
-        var d = sec && sec.querySelector('details.cat');
-        if (d) { d.open = true; sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        var target;
+        try { target = document.querySelector(location.hash); } catch (e) { return; }
+        if (!target) return;
+        // A product or item: open its category, scroll to it and highlight it
+        var parent = target.closest('details.cat');
+        var d = parent || target.querySelector('details.cat');
+        if (d) d.open = true;
+        if (parent) {
+          setTimeout(function () {
+            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            target.classList.remove('flash'); void target.offsetWidth; target.classList.add('flash');
+          }, 50);
+        } else {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
       window.addEventListener('hashchange', openFromHash);
       document.querySelectorAll('.jump a').forEach(function (a) {

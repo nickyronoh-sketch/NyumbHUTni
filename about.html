@@ -65,6 +65,9 @@
     .team-card .role { margin: 2px 0 10px; color: var(--blue); font-weight: 700; font-size: 0.95rem; }
     .team-card p { margin-bottom: 0; color: var(--muted); font-size: 0.95rem; }
     @media (max-width: 640px) { .team-grid { grid-template-columns: 1fr; } }
+    .branding-box::after { content: ""; display: block; clear: both; }
+    .branding-img { float: right; width: 340px; max-width: 45%; margin: 0 0 16px 24px; border-radius: var(--radius); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+    @media (max-width: 700px) { .branding-img { float: none; width: 100%; max-width: 100%; margin: 0 0 16px; } }
   </style>
 </head>
 <body>
@@ -143,6 +146,7 @@
     <!-- Branding services -->
     <section class="container">
       <div class="branding-box">
+        <img class="branding-img" src="assets/branding-promo.jpg" alt="NyumbHUTni promotional branding: branded T-shirts, caps, mugs, notebooks, pens, calendars and banners" />
         <h2>Promotional Branding and Marketing Services</h2>
         <p>Beyond our WASH solutions, NyumbHUTni also provides promotional branding services to businesses, institutions, organizations and other entities seeking to strengthen their visibility and brand identity.</p>
         <p>We support organizations in creating brand awareness through promotional products, branded merchandise and customized branding solutions.</p>

@@ -73,6 +73,13 @@
       .cat-text { flex-basis: 100%; }
       .cat-body { padding: 16px; }
     }
+    .brand-body { display: grid; grid-template-columns: 360px 1fr; gap: 28px; align-items: start; }
+    .brand-body img { width: 100%; border-radius: var(--radius); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+    .brand-body p { margin-top: 0; }
+    .brand-list { list-style: none; padding: 0; margin: 0 0 16px; }
+    .brand-list li { padding: 6px 0 6px 28px; position: relative; }
+    .brand-list li::before { content: "✔"; color: var(--blue); position: absolute; left: 4px; font-weight: 700; }
+    @media (max-width: 760px) { .brand-body { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -101,6 +108,7 @@
           <a href="#water">Water Purification</a>
           <a href="#sanitation">Sanitation</a>
           <a href="#more">More Solutions</a>
+          <a href="#branding">Branding</a>
         </div>
       </div>
     </section>
@@ -203,7 +211,7 @@
       <details class="cat">
         <summary>
           <span class="cat-text"><h2>More Solutions</h2><span class="intro">Ask us about any of these and we will help you find the right option.</span></span>
-          <span class="cat-count">5 solutions</span>
+          <span class="cat-count">4 solutions</span>
           <span class="chev" aria-hidden="true"></span>
         </summary>
         <div class="cat-body">
@@ -228,12 +236,32 @@
           <p>Know what's in your water and choose the right treatment.</p>
           <a class="btn small" href="contact.html?product=Water%20Quality%20Testing">Ask Us</a>
         </div>
-        <div class="more-item">
-          <h3>Promotional Branding</h3>
-          <p>Branded merchandise and customized branding solutions.</p>
-          <a class="btn small" href="contact.html?product=Branding">Ask Us</a>
-        </div>
       </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ============ PROMOTIONAL BRANDING ============ -->
+    <section class="category container" id="branding">
+      <details class="cat">
+        <summary>
+          <span class="cat-text"><h2>Promotional Branding</h2><span class="intro">Branded merchandise and promotional materials that get your organisation seen.</span></span>
+          <span class="cat-count">Service</span>
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="cat-body brand-body">
+          <img src="assets/branding-promo.jpg" alt="NyumbHUTni promotional branding: branded T-shirts, caps, mugs, notebooks, pens, calendars and banners" />
+          <div>
+            <p>We help businesses, institutions and organisations strengthen their visibility with promotional products, branded merchandise and customised branding solutions.</p>
+            <ul class="brand-list">
+              <li>Branded T-shirts, caps and apparel</li>
+              <li>Mugs and corporate gifts</li>
+              <li>Notebooks, pens and calendars</li>
+              <li>Banners and other promotional materials</li>
+            </ul>
+            <p>Tell us what you need, the quantity and your deadline, and we will send you a quotation.</p>
+            <p><a class="btn" href="contact.html?product=Promotional%20Branding">Request Branding Quote</a></p>
+          </div>
         </div>
       </details>
     </section>

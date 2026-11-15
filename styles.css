@@ -228,4 +228,5 @@ button {
 .social-link svg { width: 18px; height: 18px; fill: currentColor; }
 .social-link.whatsapp { background: #1f9e4f; }
 .social-link.facebook { background: #1877f2; }
+.social-link.instagram { background: linear-gradient(45deg, #f58529, #dd2a7b 50%, #8134af 80%, #515bd4); }
 .social-link.linkedin { background: #0a66c2; }

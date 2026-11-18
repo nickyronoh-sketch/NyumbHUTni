@@ -103,7 +103,7 @@ function sendStkPush_(phone, amount, orderId, productName) {
     amount: String(amount),
     invoiceNumber: invoiceNumber_(orderId),
     sharedShortCode: true,
-    orgShortCode: prop_('ORG_SHORTCODE', '522533'),
+    orgShortCode: '',
     orgPassKey: prop_('ORG_PASSKEY', ''),
     callbackUrl: callback,
     transactionDescription: ('NyumbHUTni ' + productName).slice(0, 40)

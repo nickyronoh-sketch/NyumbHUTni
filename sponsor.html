@@ -50,6 +50,12 @@
     .promise h3 { margin: 0 0 8px; color: #2e7d32; }
     .promise p { margin: 0; color: #3d4a3e; }
     .section-title { color: var(--brown); font-size: 1.5rem; margin: 30px 0 0; }
+    .pkg { list-style: none; padding: 12px 14px; margin: 0 0 14px; background: var(--bg-soft); border-radius: 8px; font-size: .95rem; }
+    .pkg li { display: flex; justify-content: space-between; gap: 10px; padding: 4px 0; }
+    .pkg li span:first-child::before { content: "✔ "; color: #2e7d32; font-weight: 700; }
+    .pkg li.total { border-top: 1px solid #ddd; margin-top: 6px; padding-top: 8px; font-weight: 700; color: var(--brown); }
+    .pkg li.total span:first-child::before { content: ""; }
+    .pkg-note { font-size: .85rem; color: var(--muted); margin: -6px 0 14px !important; }
   </style>
 </head>
 <body>
@@ -89,6 +95,13 @@
           <span class="sp-tag" style="background:#fbeee6;color:var(--brown)">For persons with disabilities</span>
           <h3>Sponsor a SATO Stool</h3>
           <p>A sit-down seat for pit latrines, comfortable and safer for people with disabilities, elderly people and anyone with limited mobility.</p>
+          <ul class="pkg" aria-label="What the sponsorship covers">
+            <li><span>SATO Stool</span><span>KES 2,100</span></li>
+            <li><span>Delivery to the home</span><span>KES 600</span></li>
+            <li><span>Installation (materials &amp; labour)</span><span>KES 1,400</span></li>
+            <li class="total"><span>Complete package</span><span>KES 4,100</span></li>
+          </ul>
+          <p class="pkg-note">The family pays nothing. The stool arrives fitted and ready to use.</p>
           <div class="sp-price" hidden></div>
           <div class="sp-progress" hidden>
             <div class="sp-bar" role="progressbar" aria-label="SATO Stools sponsored" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="sp-fill"></div></div>
@@ -104,6 +117,12 @@
           <span class="sp-tag" style="background:var(--blue-light);color:var(--blue)">Clean drinking water</span>
           <h3>Sponsor a Water Filter</h3>
           <p>A NyumbHUTni Water Filter for a family in need, so they have clean, safe drinking water at home every day.</p>
+          <ul class="pkg" aria-label="What the sponsorship covers">
+            <li><span>NyumbHUTni Water Filter</span><span>KES 5,500</span></li>
+            <li><span>Delivery, set-up &amp; how-to-use demo</span><span>KES 500</span></li>
+            <li class="total"><span>Complete package</span><span>KES 6,000</span></li>
+          </ul>
+          <p class="pkg-note">The family pays nothing. We set it up and show them how to use and clean it.</p>
           <div class="sp-price" hidden></div>
           <div class="sp-progress" hidden>
             <div class="sp-bar" role="progressbar" aria-label="Water filters sponsored" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="sp-fill"></div></div>
@@ -119,7 +138,7 @@
       <div class="steps">
         <div class="step"><b>1</b><h4>You sponsor</h4><p>Choose a SATO Stool or a water filter and pay securely with M-Pesa.</p></div>
         <div class="step"><b>2</b><h4>We find who needs it</h4><p>We identify people who need it most, working with the local community.</p></div>
-        <div class="step"><b>3</b><h4>We deliver</h4><p>We deliver and set it up, then share an update on our progress.</p></div>
+        <div class="step"><b>3</b><h4>We deliver &amp; install</h4><p>We deliver to the home, install or set it up, and share an update on our progress.</p></div>
       </div>
       <div class="promise">
         <h3>Our promise</h3>

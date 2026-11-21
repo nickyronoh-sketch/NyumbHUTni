@@ -21,7 +21,8 @@ var NH_PAYMENTS = {
   if (NH_PAYMENTS.testOnly && window.location.search.indexOf('paytest') === -1) return;
 
   var cards = document.querySelectorAll('[data-pay-id]');
-  if (!cards.length) return;
+  var sponsorPage = !!document.querySelector('[data-sponsor-id]');
+  if (!cards.length && !sponsorPage) return;
 
   var css = '' +
     '.pay-btn{background:#2e7d32;border-color:#2e7d32;margin-left:6px}' +
@@ -53,8 +54,8 @@ var NH_PAYMENTS = {
       '<div id="payProduct"></div>' +
       '<div class="pay-total" id="payTotal"></div>' +
       '<form id="payForm">' +
-        '<label>Quantity<input id="payQty" type="number" min="1" max="50" value="1" required /></label>' +
-        '<label>Your name<input id="payName" type="text" maxlength="80" required /></label>' +
+        '<label><span id="payQtyLabel">Quantity</span><input id="payQty" type="number" min="1" max="50" value="1" required /></label>' +
+        '<label><span id="payNameLabel">Your name</span><input id="payName" type="text" maxlength="80" required /></label>' +
         '<label>M-Pesa phone number<input id="payPhone" type="tel" placeholder="0712 345 678" required /></label>' +
         '<button type="submit" class="btn" id="paySubmit">Send M-Pesa prompt</button>' +
         '<p class="pay-note">You will receive a prompt on your phone. Enter your M-Pesa PIN to complete payment.</p>' +
@@ -64,7 +65,7 @@ var NH_PAYMENTS = {
   document.body.appendChild(overlay);
 
   var $ = function (id) { return document.getElementById(id); };
-  var current = null, pollTimer = null, prices = {};
+  var current = null, pollTimer = null, prices = {}, sponsorMode = false;
 
   function fmt(n) { return 'KES ' + Number(n).toLocaleString('en-KE'); }
   function msg(type, text) { var m = $('payMsg'); m.className = 'pay-msg ' + type; m.textContent = text; }
@@ -73,8 +74,12 @@ var NH_PAYMENTS = {
     $('payTotal').textContent = 'Total: ' + fmt(current.price * q);
   }
 
-  function open(product) {
+  function open(product, opts) {
     current = product;
+    sponsorMode = !!(opts && opts.sponsor);
+    $('payTitle').textContent = sponsorMode ? 'Sponsor with M-Pesa' : 'Pay with M-Pesa';
+    $('payQtyLabel').textContent = sponsorMode ? 'How many would you like to sponsor?' : 'Quantity';
+    $('payNameLabel').textContent = sponsorMode ? 'Your name (sponsor)' : 'Your name';
     $('payProduct').textContent = product.name + ' — ' + fmt(product.price) + ' each';
     $('payQty').value = 1;
     $('payForm').style.display = '';
@@ -126,8 +131,12 @@ var NH_PAYMENTS = {
         .then(function (res) {
           if (res.status === 'PAID') {
             clearInterval(pollTimer);
-            msg('ok', 'Payment received. Thank you! M-Pesa receipt: ' + res.receipt +
-              '. Your order number is ' + orderId + '. We will call you to arrange delivery or collection.');
+            msg('ok', sponsorMode
+              ? 'Thank you for your sponsorship! M-Pesa receipt: ' + res.receipt + '. Your reference is ' + orderId +
+                '. We will let you know when your sponsorship has been delivered.'
+              : 'Payment received. Thank you! M-Pesa receipt: ' + res.receipt +
+                '. Your order number is ' + orderId + '. We will call you to arrange delivery or collection.');
+            document.dispatchEvent(new CustomEvent('nh:paid', { detail: { productId: current.id } }));
           } else if (res.status === 'FAILED') {
             clearInterval(pollTimer);
             msg('err', 'Payment was not completed (' + (res.message || 'cancelled') + '). You can close this and try again.');
@@ -140,6 +149,11 @@ var NH_PAYMENTS = {
       }
     }, 3000);
   }
+
+  // Let other pages (e.g. Sponsor) open this checkout window.
+  window.NHPay = { open: open, fmt: fmt };
+  document.dispatchEvent(new Event('nh:payready'));
+  if (!cards.length) return;
 
   // ---------- Add buttons for products that have an online price ----------
   fetch(NH_PAYMENTS.endpoint + '?action=products')

@@ -25,6 +25,7 @@
 // ---------- Sheet names ----------
 var PRODUCTS_SHEET = 'Products';
 var ORDERS_SHEET = 'Orders';
+var SPONSOR_SHEET = 'Sponsor';
 var ORDER_HEADERS = ['Time', 'Order ID', 'Product ID', 'Product', 'Qty', 'Amount (KES)',
   'Customer name', 'Phone', 'Status', 'M-Pesa receipt', 'Result message', 'CheckoutRequestID', 'Mode'];
 
@@ -36,6 +37,7 @@ function doGet(e) {
   try {
     if (action === 'products') return json_({ ok: true, products: getProducts_() });
     if (action === 'status') return json_(getStatus_(e.parameter.order));
+    if (action === 'sponsor') return json_({ ok: true, items: getSponsor_() });
     return json_({ ok: true, service: 'NyumbHUTni payments', mode: prop_('MODE', 'mock') });
   } catch (err) {
     return json_({ ok: false, error: String(err.message || err) });
@@ -192,6 +194,57 @@ function getStatus_(orderId) {
     return { ok: true, status: status, receipt: status === 'PAID' ? rows[i][9] : '', message: rows[i][10] };
   }
   return { ok: false, error: 'Order not found' };
+}
+
+// ---------- Sponsor a Stool / Filter ----------
+
+/**
+ * Reads the Sponsor tab: Product ID | Goal | Funded offline
+ * and counts PAID orders for each sponsor product in the Orders tab.
+ * "Funded offline" lets you add sponsorships paid in cash or by direct M-Pesa.
+ */
+function getSponsor_() {
+  var ss = SpreadsheetApp.getActive();
+  var sp = ss.getSheetByName(SPONSOR_SHEET);
+  if (!sp) return [];
+  var prodSheet = ss.getSheetByName(PRODUCTS_SHEET);
+  var info = {};
+  (prodSheet ? prodSheet.getDataRange().getValues().slice(1) : []).forEach(function (r) {
+    if (!r[0]) return;
+    info[String(r[0]).trim()] = { name: String(r[1]).trim(), price: Number(r[2]) || 0,
+      available: Number(r[2]) > 0 && String(r[3]).toUpperCase() === 'YES' };
+  });
+  var paid = {};
+  ordersSheet_().getDataRange().getValues().slice(1).forEach(function (r) {
+    if (r[8] === 'PAID') paid[r[2]] = (paid[r[2]] || 0) + (Number(r[4]) || 0);
+  });
+  return sp.getDataRange().getValues().slice(1)
+    .filter(function (r) { return r[0]; })
+    .map(function (r) {
+      var id = String(r[0]).trim(), p = info[id] || { name: id, price: 0, available: false };
+      return { id: id, name: p.name, price: p.price, available: p.available,
+        goal: Number(r[1]) || 0, funded: (paid[id] || 0) + (Number(r[2]) || 0) };
+    });
+}
+
+/** Run once from the editor: adds the sponsor products and the Sponsor tab. */
+function setupSponsor() {
+  var ss = SpreadsheetApp.getActive();
+  var p = ss.getSheetByName(PRODUCTS_SHEET);
+  if (!p) { setup(); p = ss.getSheetByName(PRODUCTS_SHEET); }
+  var ids = p.getDataRange().getValues().map(function (r) { return String(r[0]).trim(); });
+  [['sponsor-stool', 'Sponsor a SATO Stool', 0, 'NO'],
+   ['sponsor-filter', 'Sponsor a Water Filter', 0, 'NO']].forEach(function (r) {
+    if (ids.indexOf(r[0]) === -1) p.appendRow(r);
+  });
+  var s = ss.getSheetByName(SPONSOR_SHEET);
+  if (!s) {
+    s = ss.insertSheet(SPONSOR_SHEET);
+    s.appendRow(['Product ID', 'Goal', 'Funded offline']);
+    s.appendRow(['sponsor-stool', 50, 0]);
+    s.appendRow(['sponsor-filter', 20, 0]);
+    s.setFrozenRows(1);
+  }
 }
 
 // ---------- Sheet helpers ----------

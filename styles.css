@@ -75,6 +75,9 @@ a { color: var(--blue); }
   color: var(--blue);
 }
 
+.main-nav a.nav-sponsor { color: #2e7d32; }
+.main-nav a.nav-sponsor:hover { background: #e9f5ea; color: #2e7d32; }
+
 /* ---------- Hero ---------- */
 .hero {
   background: linear-gradient(135deg, var(--brown) 0%, var(--brown-dark) 100%);

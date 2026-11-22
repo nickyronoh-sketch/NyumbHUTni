@@ -212,6 +212,11 @@ button {
   .header-inner { justify-content: center; }
   .main-nav { justify-content: center; }
   .logo { height: 52px; }
+  /* Phones: the header scrolls away instead of covering a quarter of the screen */
+  .site-header { position: static; }
+  .header-inner { gap: 4px; padding-top: 6px; padding-bottom: 6px; }
+  .main-nav { gap: 0 2px; }
+  .main-nav a { padding: 5px 8px; font-size: 0.92rem; }
   .hero { padding: 50px 0; }
   .hero h1 { font-size: 1.6rem; }
 }

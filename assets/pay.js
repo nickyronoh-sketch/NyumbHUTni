@@ -164,10 +164,12 @@ var NH_PAYMENTS = {
         var p = prices[card.getAttribute('data-pay-id')];
         if (!p) return; // no price set in the sheet: keep "Request a Quote" only
         var quoteBtn = card.querySelector('.btn');
-        var tag = document.createElement('span');
-        tag.className = 'price-tag';
-        tag.textContent = fmt(p.price);
-        quoteBtn.parentNode.parentNode.insertBefore(tag, quoteBtn.parentNode);
+        if (!window.NHShop) { // shop.js shows prices itself
+          var tag = document.createElement('span');
+          tag.className = 'price-tag';
+          tag.textContent = fmt(p.price);
+          quoteBtn.parentNode.parentNode.insertBefore(tag, quoteBtn.parentNode);
+        }
         var btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'btn small pay-btn';

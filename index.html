@@ -31,32 +31,78 @@
   <style>
     /* Extra styles used only on the Home page */
     .tagline { font-size: 1.15rem; font-weight: 600; }
+    .hero .btn.wa { background: #25d366; border-color: #25d366; color: #fff; }
+    .hero .btn.wa:hover { background: #1ebe5b; border-color: #1ebe5b; }
+    .section { padding-top: 56px; padding-bottom: 10px; }
     .section-title { text-align: center; color: var(--brown); font-size: 1.8rem; margin: 0 0 8px; }
     .section-intro { text-align: center; color: var(--muted); max-width: 680px; margin: 0 auto 30px; }
-    .number {
-      display: inline-block; width: 34px; height: 34px; line-height: 34px;
-      text-align: center; border-radius: 50%;
-      background: var(--blue); color: #fff; font-weight: 700; margin-bottom: 8px;
+    /* Popular products */
+    .pop { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
+    .pop a { display: flex; flex-direction: column; text-decoration: none; color: var(--text); background: #fff; border: 1px solid #e8e2dc; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.05); transition: transform .15s ease, box-shadow .15s ease; }
+    .pop a:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.1); }
+    .pop img { height: 200px; width: 100%; object-fit: contain; padding: 14px; background: #fff; border-bottom: 1px solid #eee; }
+    .pop .t { padding: 14px 16px 16px; }
+    .pop .t span { display: block; font-size: .8rem; font-weight: 600; color: var(--blue); }
+    .pop .t b { display: block; font-size: 1.1rem; margin: 2px 0 4px; }
+    .pop .t em { font-style: normal; color: var(--brown); font-weight: 600; font-size: .9rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 26px 0 0; }
+    .chips a { border: 1px solid var(--brown); color: var(--brown); border-radius: 20px; padding: 7px 16px; text-decoration: none; font-weight: 600; font-size: .92rem; }
+    .chips a:hover { background: var(--brown); color: #fff; }
+    /* Visit our shop */
+    .visit-wrap { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: center; background: var(--bg-soft); border-radius: 16px; padding: 32px; }
+    .visit-wrap video { width: 100%; border-radius: 12px; background: #000; box-shadow: 0 8px 22px rgba(0,0,0,.18); aspect-ratio: 9/16; }
+    .visit-info h2 { color: var(--brown); font-size: 1.8rem; margin: 0 0 10px; }
+    .visit-info p { margin: 0 0 14px; color: var(--muted); }
+    .facts { list-style: none; padding: 0; margin: 0 0 22px; }
+    .facts li { display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid #e8e2dc; }
+    .facts li:last-child { border-bottom: 0; }
+    .facts svg { flex: none; width: 22px; height: 22px; fill: var(--brown); margin-top: 2px; }
+    .facts b { display: block; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn.green { background: #25d366; border-color: #25d366; }
+    .btn.green:hover { background: #1ebe5b; border-color: #1ebe5b; }
+    .btn.outline { background: transparent; color: var(--brown); border: 2px solid var(--brown); }
+    .btn.outline:hover { background: var(--brown); color: #fff; }
+    /* Sponsor band */
+    .sponsor-band { background: linear-gradient(135deg, #2e7d32, #1b5e20); color: #fff; border-radius: 16px; padding: 34px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
+    .sponsor-band h2 { margin: 0 0 6px; font-size: 1.6rem; }
+    .sponsor-band p { margin: 0; max-width: 620px; opacity: .95; }
+    .sponsor-band .btn { background: #fff; color: #1b5e20; border-color: #fff; }
+    .sponsor-band .btn:hover { background: #e9f5ea; }
+    /* Why */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
+    .why-item { text-align: center; padding: 10px; }
+    .why-item .ic { width: 58px; height: 58px; border-radius: 50%; background: var(--blue-light); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; }
+    .why-item .ic svg { width: 28px; height: 28px; fill: none; stroke: var(--blue); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .why-item h3 { margin: 0 0 4px; color: var(--brown); font-size: 1.1rem; }
+    .why-item p { margin: 0; color: var(--muted); }
+    /* Projects */
+    .proj { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+    .proj div { background: #fff; border: 1px solid #e8e2dc; border-left: 6px solid var(--blue); border-radius: var(--radius); padding: 24px; }
+    .proj div:first-child { border-left-color: var(--brown); }
+    .proj small { font-weight: 700; color: var(--muted); letter-spacing: .5px; }
+    .proj h3 { margin: 4px 0 8px; color: var(--brown); }
+    .proj p { margin: 0 0 12px; color: var(--muted); }
+    .proj a { font-weight: 600; text-decoration: none; }
+    /* Branding strip */
+    .brand-strip { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between; border: 2px dashed #e0c9bb; border-radius: var(--radius); padding: 18px 24px; }
+    .brand-strip p { margin: 0; flex: 1 1 420px; }
+    .brand-strip b { color: var(--brown); }
+    /* Final CTA */
+    .cta-final { text-align: center; padding-top: 56px; padding-bottom: 64px; }
+    .cta-final h2 { color: var(--brown); font-size: 1.8rem; margin: 0 0 8px; }
+    .cta-final p { color: var(--muted); margin: 0 0 20px; }
+    .cta-final .btn-row { justify-content: center; }
+    @media (max-width: 760px) {
+      .visit-wrap { grid-template-columns: 1fr; padding: 20px; gap: 24px; }
+      .visit-wrap video { max-width: 280px; margin: 0 auto; display: block; }
+      .sponsor-band { padding: 26px; }
+      .pop { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .pop img { height: 130px; padding: 8px; }
+      .pop .t { padding: 10px 12px 12px; }
+      .pop .t b { font-size: .98rem; }
+      .why-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
     }
-    .services { padding-top: 50px; padding-bottom: 20px; }
-    .services .grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-    .service { background: var(--bg-soft); border-top: 4px solid var(--blue); border-radius: var(--radius); padding: 22px; }
-    .service h3 { margin: 0 0 8px; color: var(--brown); }
-    .service p { color: var(--muted); margin: 0 0 14px; }
-    .why { background: var(--blue-light); padding: 50px 0; margin-top: 40px; }
-    .why .grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-    .why-item h4 { margin: 0 0 6px; color: var(--blue); font-size: 1.1rem; }
-    .why-item p { margin: 0; color: var(--text); }
-    .branding { padding: 50px 0; }
-    .branding-box {
-      background: var(--brown); color: #fff; border-radius: var(--radius);
-      padding: 30px; display: flex; flex-wrap: wrap; gap: 20px;
-      align-items: center; justify-content: space-between;
-    }
-    .branding-box h2 { margin: 0 0 6px; }
-    .branding-box p { margin: 0; max-width: 640px; }
-    .visit { text-align: center; padding: 10px 0 60px; }
-    .visit p { margin: 4px 0; }
   </style>
   <script type="application/ld+json">
   {
@@ -76,6 +122,12 @@
       "addressRegion": "Bomet County",
       "addressCountry": "KE"
     },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "08:30",
+      "closes": "18:30"
+    }],
     "sameAs": [
       "https://www.facebook.com/Nyumbhutnike",
       "https://www.instagram.com/nyumbhutni254/",
@@ -103,86 +155,112 @@
   </header>
 
   <main>
-    <!-- Banner -->
+    <!-- 1. Banner -->
     <section class="hero">
       <div class="container">
-        <h1>Safe Water, Sanitation & Hygiene Solutions</h1>
+        <h1>Safe Water, Sanitation &amp; Hygiene Solutions</h1>
         <p>Reliable products and practical technologies for households, businesses, institutions and communities.</p>
         <p class="tagline">Practical Solutions. Better Living. Healthier Communities.</p>
-        <p><a class="btn" href="products.html">View Products</a> <a class="btn ghost" href="contact.html">Request a Quote</a></p>
+        <p>
+          <a class="btn" href="products.html">Shop Products</a>
+          <a class="btn wa" href="https://wa.me/254702468500?text=Hi%20NyumbHUTni%2C%20I%27d%20like%20to%20ask%20about%20your%20products" target="_blank" rel="noopener">WhatsApp Us</a>
+        </p>
       </div>
     </section>
 
-    <!-- What we offer -->
-    <section class="services container">
-      <h2 class="section-title">What We Offer</h2>
-      <p class="section-intro">A comprehensive range of water, sanitation and hygiene products and solutions.</p>
-      <div class="grid">
-        <div class="service">
-          <span class="number">1</span>
-          <h3>Water Purification & Treatment</h3>
-          <p>Water filtration and purification systems for homes, businesses and institutions.</p>
-          <a class="btn small" href="contact.html?product=Water%20Purification">Request a Quote</a>
-        </div>
-        <div class="service">
-          <span class="number">2</span>
-          <h3>Water Pumping & Supply</h3>
-          <p>Pumps and accessories for domestic, commercial and institutional water supply.</p>
-          <a class="btn small" href="contact.html?product=Water%20Pumping">Request a Quote</a>
-        </div>
-        <div class="service">
-          <span class="number">3</span>
-          <h3>Sanitation Solutions</h3>
-          <p>Toilets, toilet accessories and bathroom fittings.</p>
-          <a class="btn small" href="contact.html?product=Sanitation">Request a Quote</a>
-        </div>
-        <div class="service">
-          <span class="number">4</span>
-          <h3>Hygiene Products</h3>
-          <p>Practical hygiene products for cleaner, safer homes and workplaces.</p>
-          <a class="btn small" href="contact.html?product=Hygiene%20Products">Request a Quote</a>
-        </div>
-        <div class="service">
-          <span class="number">5</span>
-          <h3>Solar Solutions</h3>
-          <p>Solar-powered systems for energy access and water-related systems.</p>
-          <a class="btn small" href="contact.html?product=Solar%20Solutions">Request a Quote</a>
-        </div>
-        <div class="service">
-          <span class="number">6</span>
-          <h3>Water Quality Testing</h3>
-          <p>Know what's in your water and choose the right treatment option.</p>
-          <a class="btn small" href="contact.html?product=Water%20Quality%20Testing">Request a Quote</a>
-        </div>
+    <!-- 2. Popular products -->
+    <section class="section container">
+      <h2 class="section-title">Popular Products</h2>
+      <p class="section-intro">Clean water and safer toilets for your home, school or office.</p>
+      <div class="pop">
+        <a href="products.html#water-filter"><img src="assets/water-filter.png" alt="NyumbHUTni Water Filter" loading="lazy" /><div class="t"><span>Water Purification</span><b>NyumbHUTni Water Filter</b><em>View product &rarr;</em></div></a>
+        <a href="products.html#dispenser-filter"><img src="assets/dispenser-filter.jpg" alt="Dispenser mineral water filter" loading="lazy" /><div class="t"><span>Water Purification</span><b>Dispenser Mineral Filter</b><em>View product &rarr;</em></div></a>
+        <a href="products.html#sato-pan"><img src="assets/Sato%20pan.webp" alt="SATO Pan" loading="lazy" /><div class="t"><span>Sanitation</span><b>SATO Pan</b><em>View product &rarr;</em></div></a>
+        <a href="products.html#sato-stool"><img src="assets/Sato%20stool.jpg" alt="SATO Stool" loading="lazy" /><div class="t"><span>Sanitation</span><b>SATO Stool</b><em>View product &rarr;</em></div></a>
+      </div>
+      <div class="chips">
+        <a href="products.html#ro-purifier">RO Purifiers</a>
+        <a href="products.html#water-pumping">Water Pumps</a>
+        <a href="products.html#solar-solutions">Solar Solutions</a>
+        <a href="products.html#hygiene-products">Hygiene Products</a>
+        <a href="products.html#water-quality-testing">Water Testing</a>
+        <a href="products.html">All products &rarr;</a>
       </div>
     </section>
 
-    <!-- Why choose us -->
-    <section class="why">
-      <div class="container">
-        <h2 class="section-title">Why NyumbHUTni?</h2>
-        <p class="section-intro">Access to essential services should not be unnecessarily complicated.</p>
-        <div class="grid">
-          <div class="why-item"><h4>Accessible</h4><p>Essential WASH products within reach of households, businesses and institutions.</p></div>
-          <div class="why-item"><h4>Reliable</h4><p>Dependable products and practical technologies.</p></div>
-          <div class="why-item"><h4>Convenient</h4><p>Shop online or visit our retail outlet in Bomet.</p></div>
-          <div class="why-item"><h4>Customer-Centred</h4><p>We help you find the right solution for your needs.</p></div>
+    <!-- 3. Visit our shop -->
+    <section class="section container">
+      <div class="visit-wrap">
+        <video controls preload="none" playsinline poster="assets/shop-tour-poster.jpg">
+          <source src="assets/shop-tour.mp4" type="video/mp4" />
+        </video>
+        <div class="visit-info">
+          <h2>Visit Our Shop in Bomet</h2>
+          <p>Watch our quick shop tour, then come and see the products for yourself. Our team will help you choose the right solution.</p>
+          <ul class="facts">
+            <li><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><div><b>Shop No. B05, Opposite NCPB Stores</b>Bomet town, Bomet County</div></li>
+            <li><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7z"/></svg><div><b>Monday &ndash; Saturday</b>8:30 am &ndash; 6:30 pm</div></li>
+            <li><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><div><b>0702 468 500</b>Call or WhatsApp</div></li>
+          </ul>
+          <div class="btn-row">
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=NCPB+Stores+Bomet" target="_blank" rel="noopener">Get Directions</a>
+            <a class="btn green" href="https://wa.me/254702468500?text=Hi%20NyumbHUTni%2C%20I%27d%20like%20to%20ask%20about%20your%20products" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn outline" href="tel:+254702468500">Call</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Branding services -->
-    <section class="branding container">
-      <div class="branding-box">
+    <!-- 4. Sponsor -->
+    <section class="section container">
+      <div class="sponsor-band">
         <div>
-          <h2>Promotional Branding Services</h2>
-          <p>Promotional products, branded merchandise and customized branding solutions for businesses, institutions and organizations.</p>
+          <h2>Give Dignity and Clean Water</h2>
+          <p>Sponsor a SATO Stool for a person with disability, or a water filter for a family in need. We deliver and install it at no cost to the family.</p>
         </div>
-        <a class="btn ghost" href="contact.html?product=Branding">Talk to Us</a>
+        <a class="btn" href="sponsor.html">Sponsor Now</a>
       </div>
     </section>
 
-  
+    <!-- 5. Why NyumbHUTni -->
+    <section class="section container">
+      <h2 class="section-title">Why NyumbHUTni?</h2>
+      <p class="section-intro">Access to essential services should not be unnecessarily complicated.</p>
+      <div class="why-grid">
+        <div class="why-item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9v11h14V9"/><path d="M10 20v-5h4v5"/></svg></div><h3>Accessible</h3><p>Essential WASH products within reach of households, businesses and institutions.</p></div>
+        <div class="why-item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 8-7 9-4-1-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Reliable</h3><p>Dependable products and practical technologies.</p></div>
+        <div class="why-item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.5 11h11L21 7H7"/><circle cx="9" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/></svg></div><h3>Convenient</h3><p>Shop online or visit our retail outlet in Bomet.</p></div>
+        <div class="why-item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Customer-Centred</h3><p>We help you find the right solution for your needs.</p></div>
+      </div>
+    </section>
+
+    <!-- 6. Projects -->
+    <section class="section container">
+      <h2 class="section-title">Our Projects</h2>
+      <p class="section-intro">Working with partners to bring safe water and sanitation to more communities.</p>
+      <div class="proj">
+        <div><small>PROJECT 01</small><h3>Last-Mile SATO Toilet Installation</h3><p>Bringing improved, dignified sanitation closer to every household through last-mile distribution and installation of SATO toilets.</p><a href="partner.html">Learn more &amp; partner with us &rarr;</a></div>
+        <div><small>PROJECT 02</small><h3>Filters for Trees</h3><p>Promoting household water filters as an alternative to boiling water with firewood, to help protect the Mau-Mara ecosystem.</p><a href="partner.html">Learn more &amp; partner with us &rarr;</a></div>
+      </div>
+    </section>
+
+    <!-- 7. Branding -->
+    <section class="section container">
+      <div class="brand-strip">
+        <p><b>Promotional Branding Services</b> &mdash; branded merchandise and custom branding for businesses, institutions and organizations.</p>
+        <a class="btn small" href="products.html#branding">Learn more</a>
+      </div>
+    </section>
+
+    <!-- 8. Final call to action -->
+    <section class="cta-final container">
+      <h2>Not Sure What You Need?</h2>
+      <p>Tell us about your home, school or business and we will recommend the right solution.</p>
+      <div class="btn-row">
+        <a class="btn green" href="https://wa.me/254702468500?text=Hi%20NyumbHUTni%2C%20I%27d%20like%20to%20ask%20about%20your%20products" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <a class="btn outline" href="contact.html">Request a Quote</a>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">

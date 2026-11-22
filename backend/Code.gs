@@ -38,6 +38,7 @@ function doGet(e) {
     if (action === 'products') return json_({ ok: true, products: getProducts_() });
     if (action === 'status') return json_(getStatus_(e.parameter.order));
     if (action === 'sponsor') return json_({ ok: true, items: getSponsor_() });
+    if (action === 'prices') return json_({ ok: true, prices: getPrices_() });
     return json_({ ok: true, service: 'NyumbHUTni payments', mode: prop_('MODE', 'mock') });
   } catch (err) {
     return json_({ ok: false, error: String(err.message || err) });
@@ -249,13 +250,28 @@ function setupSponsor() {
 
 // ---------- Sheet helpers ----------
 
-/** Reads the Products tab: columns ID | Name | Price (KES) | Online payment (YES/NO). */
+/** Reads the Products tab: columns ID | Name | Price (KES) | Online payment (YES/NO) | Old price (KES, optional). */
 function getProducts_() {
   var sheet = SpreadsheetApp.getActive().getSheetByName(PRODUCTS_SHEET);
   if (!sheet) return [];
   return sheet.getDataRange().getValues().slice(1)
     .filter(function (r) { return r[0] && Number(r[2]) > 0 && String(r[3]).toUpperCase() === 'YES'; })
     .map(function (r) { return { id: String(r[0]).trim(), name: String(r[1]).trim(), price: Number(r[2]) }; });
+}
+
+/** Every product with a price in the Products tab, for showing prices on the website
+ *  (whether or not online payment is switched on for it). */
+function getPrices_() {
+  var sheet = SpreadsheetApp.getActive().getSheetByName(PRODUCTS_SHEET);
+  if (!sheet) return [];
+  return sheet.getDataRange().getValues().slice(1)
+    .filter(function (r) { return r[0] && Number(r[2]) > 0; })
+    .map(function (r) {
+      var item = { id: String(r[0]).trim(), name: String(r[1]).trim(), price: Number(r[2]) };
+      // Column E "Old price (KES)": if higher than the price, the website shows it crossed out.
+      if (Number(r[4]) > item.price) item.oldPrice = Number(r[4]);
+      return item;
+    });
 }
 
 function ordersSheet_() {

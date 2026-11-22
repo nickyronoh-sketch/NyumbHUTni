@@ -93,6 +93,14 @@
     .card, .more-item { scroll-margin-top: 140px; }
     @keyframes flash { 0%,100% { box-shadow: 0 0 0 0 rgba(11,136,209,0); } 20%,70% { box-shadow: 0 0 0 5px rgba(11,136,209,.75); } }
     .flash { animation: flash 2.4s ease; }
+    .buy-wa { background: #25d366; border-color: #25d366; display: inline-flex; align-items: center; gap: 6px; }
+    .buy-wa:hover { background: #1ebe5b; border-color: #1ebe5b; }
+    .wa-ic { width: 16px; height: 16px; fill: #fff; flex: none; }
+    .price-tag { display: block; font-weight: 700; color: var(--brown); font-size: 1.1rem; padding: 0 16px; margin: 0 0 10px; }
+    .price-ask { color: var(--muted); font-weight: 600; font-size: .95rem; }
+    .old-price { color: #9e9e9e; font-weight: 600; font-size: .95rem; margin-right: 4px; text-decoration-thickness: 2px; text-decoration-color: #d32f2f; }
+    .save { display: inline-block; background: #d32f2f; color: #fff; font-size: .75rem; font-weight: 700; padding: 2px 8px; border-radius: 12px; margin-left: 6px; vertical-align: middle; }
+
     .card .sponsor-link { margin: -4px 0 16px; font-size: .9rem; }
     .sponsor-link a { color: #2e7d32; font-weight: 600; text-decoration: none; }
     .sponsor-link a:hover { text-decoration: underline; }
@@ -120,7 +128,7 @@
     <section class="hero">
       <div class="container">
         <h1>Products & Services</h1>
-        <p>Reliable water, sanitation and hygiene products for homes, businesses and institutions. Click "Buy" on any product to order.</p>
+        <p>Reliable water, sanitation and hygiene products for homes, businesses and institutions. Tap "Buy on WhatsApp" on any product to order.</p>
         <div class="jump">
           <a href="#water">Water Purification</a>
           <a href="#sanitation">Sanitation</a>
@@ -151,7 +159,7 @@
           <span class="tag">Water Purification</span>
           <h4>NyumbHUTni Water Filter</h4>
           <p>Water filter for clean, safe drinking water at home or at work.</p>
-          <p><a class="btn small" href="contact.html?product=NyumbHUTni%20Water%20Filter">Buy</a></p>
+          <p><a class="btn small buy-wa" href="https://wa.me/254702468500?text=Hi%20NyumbHUTni%2C%20I%20would%20like%20to%20buy%3A%20NyumbHUTni%20Water%20Filter" target="_blank" rel="noopener"><svg class="wa-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.05 2.1a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.4a9.9 9.9 0 1 0 4.7-18.6zm5.8 14c-.25.7-1.45 1.33-2 1.4-.52.08-1.17.11-1.88-.12a17 17 0 0 1-1.7-.63c-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.2-1.6-1.2-3.06s.76-2.17 1.03-2.47c.28-.3.6-.37.8-.37h.57c.19 0 .43-.07.67.5.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.3-.13.6.17.3.76 1.27 1.64 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Buy on WhatsApp</a></p>
           <p class="sponsor-link"><a href="sponsor.html">&#9829; Sponsor one for a family in need &rarr;</a></p>
         </article>
 
@@ -160,7 +168,7 @@
           <span class="tag">Water Purification</span>
           <h4>Dispenser Mineral Filter</h4>
           <p>Mineral filter that fits on a water dispenser for clean, great-tasting water.</p>
-          <p><a class="btn small" href="contact.html?product=Dispenser%20Mineral%20Filter">Buy</a></p>
+          <p><a class="btn small buy-wa" href="https://wa.me/254702468500?text=Hi%20NyumbHUTni%2C%20I%20would%20like%20to%20buy%3A%20Dispenser%20Mineral%20Filter" target="_blank" rel="noopener"><svg class="wa-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.05 2.1a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.4a9.9 9.9 0 1 0 4.7-18.6zm5.8 14c-.25.7-1.45 1.33-2 1.4-.52.08-1.17.11-1.88-.12a17 17 0 0 1-1.7-.63c-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.2-1.6-1.2-3.06s.76-2.17 1.03-2.47c.28-.3.6-.37.8-.37h.57c.19 0 .43-.07.67.5.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.3-.13.6.17.3.76 1.27 1.64 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Buy on WhatsApp</a></p>
         </article>
 
         <article class="card" id="ro-purifier" data-pay-id="ro-purifier">
@@ -168,7 +176,7 @@
           <span class="tag">Water Purification</span>
           <h4>RO Water Purifier</h4>
           <p>Reverse osmosis (RO) purification system for homes, offices and institutions.</p>
-          <p><a class="btn small" href="contact.html?product=RO%20Water%20Purifier">Buy</a></p>
+          <p><a class="btn small buy-wa" href="https://wa.me/254702468500?text=Hi%20NyumbHUTni%2C%20I%20would%20like%20to%20buy%3A%20RO%20Water%20Purifier" target="_blank" rel="noopener"><svg class="wa-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.05 2.1a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.4a9.9 9.9 0 1 0 4.7-18.6zm5.8 14c-.25.7-1.45 1.33-2 1.4-.52.08-1.17.11-1.88-.12a17 17 0 0 1-1.7-.63c-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.2-1.6-1.2-3.06s.76-2.17 1.03-2.47c.28-.3.6-.37.8-.37h.57c.19 0 .43-.07.67.5.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.3-.13.6.17.3.76 1.27 1.64 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Buy on WhatsApp</a></p>
         </article>
 
       </div>
@@ -192,7 +200,7 @@
           <span class="tag">Sanitation</span>
           <h4>SATO Pan</h4>
           <p>Squat toilet pan with a self-closing trap door that helps keep out smells and flies. Easy to clean.</p>
-          <p><a class="btn small" href="contact.html?product=SATO%20Pan">Buy</a></p>
+          <p><a class="btn small buy-wa" href="https://wa.me/254702468500?text=Hi%20NyumbHUTni%2C%20I%20would%20like%20to%20buy%3A%20SATO%20Pan" target="_blank" rel="noopener"><svg class="wa-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.05 2.1a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.4a9.9 9.9 0 1 0 4.7-18.6zm5.8 14c-.25.7-1.45 1.33-2 1.4-.52.08-1.17.11-1.88-.12a17 17 0 0 1-1.7-.63c-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.2-1.6-1.2-3.06s.76-2.17 1.03-2.47c.28-.3.6-.37.8-.37h.57c.19 0 .43-.07.67.5.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.3-.13.6.17.3.76 1.27 1.64 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Buy on WhatsApp</a></p>
         </article>
 
         <article class="card" id="sato-flex" data-pay-id="sato-flex">
@@ -200,7 +208,7 @@
           <span class="tag">Sanitation</span>
           <h4>SATO Flex</h4>
           <p>Flexible SATO toilet unit with a self-closing trap door for upgrading existing toilets.</p>
-          <p><a class="btn small" href="contact.html?product=SATO%20Flex">Buy</a></p>
+          <p><a class="btn small buy-wa" href="https://wa.me/254702468500?text=Hi%20NyumbHUTni%2C%20I%20would%20like%20to%20buy%3A%20SATO%20Flex" target="_blank" rel="noopener"><svg class="wa-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.05 2.1a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.4a9.9 9.9 0 1 0 4.7-18.6zm5.8 14c-.25.7-1.45 1.33-2 1.4-.52.08-1.17.11-1.88-.12a17 17 0 0 1-1.7-.63c-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.2-1.6-1.2-3.06s.76-2.17 1.03-2.47c.28-.3.6-.37.8-.37h.57c.19 0 .43-.07.67.5.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.3-.13.6.17.3.76 1.27 1.64 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Buy on WhatsApp</a></p>
         </article>
 
         <article class="card" id="sato-stool" data-pay-id="sato-stool">
@@ -208,7 +216,7 @@
           <span class="tag">Sanitation</span>
           <h4>SATO Stool</h4>
           <p>Sit-down toilet seat for pit latrines, comfortable for elderly people and people with limited mobility.</p>
-          <p><a class="btn small" href="contact.html?product=SATO%20Stool">Buy</a></p>
+          <p><a class="btn small buy-wa" href="https://wa.me/254702468500?text=Hi%20NyumbHUTni%2C%20I%20would%20like%20to%20buy%3A%20SATO%20Stool" target="_blank" rel="noopener"><svg class="wa-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.05 2.1a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.4a9.9 9.9 0 1 0 4.7-18.6zm5.8 14c-.25.7-1.45 1.33-2 1.4-.52.08-1.17.11-1.88-.12a17 17 0 0 1-1.7-.63c-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.2-1.6-1.2-3.06s.76-2.17 1.03-2.47c.28-.3.6-.37.8-.37h.57c.19 0 .43-.07.67.5.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.3-.13.6.17.3.76 1.27 1.64 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Buy on WhatsApp</a></p>
           <p class="sponsor-link"><a href="sponsor.html">&#9829; Sponsor one for a person with disability &rarr;</a></p>
         </article>
 
@@ -217,7 +225,7 @@
           <span class="tag">Sanitation</span>
           <h4>Teepee Toilet Brush &amp; Bowl Set</h4>
           <p>Toilet brush with a matching holder for easy, hygienic toilet cleaning.</p>
-          <p><a class="btn small" href="contact.html?product=Teepee%20Toilet%20Brush%20%26%20Bowl%20Set">Buy</a></p>
+          <p><a class="btn small buy-wa" href="https://wa.me/254702468500?text=Hi%20NyumbHUTni%2C%20I%20would%20like%20to%20buy%3A%20Teepee%20Toilet%20Brush%20%26%20Bowl%20Set" target="_blank" rel="noopener"><svg class="wa-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.05 2.1a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.4a9.9 9.9 0 1 0 4.7-18.6zm5.8 14c-.25.7-1.45 1.33-2 1.4-.52.08-1.17.11-1.88-.12a17 17 0 0 1-1.7-.63c-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.2-1.6-1.2-3.06s.76-2.17 1.03-2.47c.28-.3.6-.37.8-.37h.57c.19 0 .43-.07.67.5.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.3-.13.6.17.3.76 1.27 1.64 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Buy on WhatsApp</a></p>
         </article>
 
       </div>
@@ -238,22 +246,22 @@
         <div class="more-item" id="water-pumping">
           <h3>Water Pumping & Supply</h3>
           <p>Pumps and accessories for domestic, commercial and institutional use.</p>
-          <a class="btn small" href="contact.html?product=Water%20Pumping">Ask Us</a>
+          <a class="btn small buy-wa" href="https://wa.me/254702468500?text=Hi%20NyumbHUTni%2C%20I%20would%20like%20to%20ask%20about%3A%20Water%20Pumping%20%26%20Supply" target="_blank" rel="noopener"><svg class="wa-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.05 2.1a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.4a9.9 9.9 0 1 0 4.7-18.6zm5.8 14c-.25.7-1.45 1.33-2 1.4-.52.08-1.17.11-1.88-.12a17 17 0 0 1-1.7-.63c-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.2-1.6-1.2-3.06s.76-2.17 1.03-2.47c.28-.3.6-.37.8-.37h.57c.19 0 .43-.07.67.5.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.3-.13.6.17.3.76 1.27 1.64 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Ask on WhatsApp</a>
         </div>
         <div class="more-item" id="hygiene-products">
           <h3>Hygiene Products</h3>
           <p>Practical hygiene products for cleaner, safer homes and workplaces.</p>
-          <a class="btn small" href="contact.html?product=Hygiene%20Products">Ask Us</a>
+          <a class="btn small buy-wa" href="https://wa.me/254702468500?text=Hi%20NyumbHUTni%2C%20I%20would%20like%20to%20ask%20about%3A%20Hygiene%20Products" target="_blank" rel="noopener"><svg class="wa-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.05 2.1a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.4a9.9 9.9 0 1 0 4.7-18.6zm5.8 14c-.25.7-1.45 1.33-2 1.4-.52.08-1.17.11-1.88-.12a17 17 0 0 1-1.7-.63c-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.2-1.6-1.2-3.06s.76-2.17 1.03-2.47c.28-.3.6-.37.8-.37h.57c.19 0 .43-.07.67.5.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.3-.13.6.17.3.76 1.27 1.64 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Ask on WhatsApp</a>
         </div>
         <div class="more-item" id="solar-solutions">
           <h3>Solar Solutions</h3>
           <p>Solar-powered systems for energy access and water-related systems.</p>
-          <a class="btn small" href="contact.html?product=Solar%20Solutions">Ask Us</a>
+          <a class="btn small buy-wa" href="https://wa.me/254702468500?text=Hi%20NyumbHUTni%2C%20I%20would%20like%20to%20ask%20about%3A%20Solar%20Solutions" target="_blank" rel="noopener"><svg class="wa-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.05 2.1a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.4a9.9 9.9 0 1 0 4.7-18.6zm5.8 14c-.25.7-1.45 1.33-2 1.4-.52.08-1.17.11-1.88-.12a17 17 0 0 1-1.7-.63c-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.2-1.6-1.2-3.06s.76-2.17 1.03-2.47c.28-.3.6-.37.8-.37h.57c.19 0 .43-.07.67.5.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.3-.13.6.17.3.76 1.27 1.64 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Ask on WhatsApp</a>
         </div>
         <div class="more-item" id="water-quality-testing">
           <h3>Water Quality Testing</h3>
           <p>Know what's in your water and choose the right treatment.</p>
-          <a class="btn small" href="contact.html?product=Water%20Quality%20Testing">Ask Us</a>
+          <a class="btn small buy-wa" href="https://wa.me/254702468500?text=Hi%20NyumbHUTni%2C%20I%20would%20like%20to%20ask%20about%3A%20Water%20Quality%20Testing" target="_blank" rel="noopener"><svg class="wa-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.05 2.1a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.4a9.9 9.9 0 1 0 4.7-18.6zm5.8 14c-.25.7-1.45 1.33-2 1.4-.52.08-1.17.11-1.88-.12a17 17 0 0 1-1.7-.63c-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.2-1.6-1.2-3.06s.76-2.17 1.03-2.47c.28-.3.6-.37.8-.37h.57c.19 0 .43-.07.67.5.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.3-.13.6.17.3.76 1.27 1.64 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Ask on WhatsApp</a>
         </div>
       </div>
         </div>
@@ -349,6 +357,7 @@
     })();
   </script>
   <script src="app.js"></script>
+  <script src="assets/shop.js"></script>
   <script src="assets/pay.js"></script>
 </body>
 </html>

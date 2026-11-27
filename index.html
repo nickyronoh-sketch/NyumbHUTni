@@ -103,6 +103,16 @@
       .pop .t b { font-size: .98rem; }
       .why-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
     }
+    .itafundi-band { background: #1E2A3A; color: #fff; border-radius: 16px; padding: 28px 30px; display: flex; flex-wrap: wrap; gap: 22px; align-items: center; }
+    .itafundi-band img { width: 72px; height: 72px; flex: none; }
+    .itafundi-band .txt { flex: 1 1 360px; }
+    .itafundi-band .new { display: inline-block; background: rgba(242,140,40,.2); color: #ffc58a; font-weight: 700; font-size: .8rem; padding: 3px 12px; border-radius: 20px; margin-bottom: 6px; }
+    .itafundi-band h2 { margin: 0 0 6px; font-size: 1.6rem; }
+    .itafundi-band h2 em { font-style: normal; color: #F28C28; }
+    .itafundi-band p { margin: 0; color: #d7dee8; }
+    .itafundi-band .acts { display: flex; gap: 10px; flex-wrap: wrap; }
+    .itafundi-band .btn { background: #F28C28; border-color: #F28C28; color: #fff; }
+    .itafundi-band .btn.outline-light { background: transparent; border: 2px solid rgba(255,255,255,.8); }
   </style>
   <script type="application/ld+json">
   {
@@ -211,6 +221,22 @@
       </div>
     </section>
 
+    <!-- ItaFundi -->
+    <section class="section container">
+      <div class="itafundi-band">
+        <img src="assets/itafundi-logo.svg" alt="ItaFundi logo" width="72" height="72" />
+        <div class="txt">
+          <span class="new">NEW from NyumbHUTni</span>
+          <h2>Something broken? <em>Ita Fundi.</em></h2>
+          <p>Find a trusted plumber, electrician, solar technician, mason or farm fundi near you, for your home, business or farm.</p>
+        </div>
+        <div class="acts">
+          <a class="btn" href="https://nickyronoh-sketch.github.io/itafundi/request.html" target="_blank" rel="noopener">Request a fundi</a>
+          <a class="btn outline-light" href="https://nickyronoh-sketch.github.io/itafundi/join.html" target="_blank" rel="noopener">I am a fundi</a>
+        </div>
+      </div>
+    </section>
+
     <!-- 4. Sponsor -->
     <section class="section container">
       <div class="sponsor-band">
@@ -289,6 +315,7 @@
         </a>
       </div>
       <p>&copy; <span id="year"></span> NyumbHUTni Limited — Practical Solutions for Better Living.</p>
+      <p style="margin-top:6px">Need a fundi? Try <a href="https://nickyronoh-sketch.github.io/itafundi/" target="_blank" rel="noopener" style="color:#F28C28;font-weight:600">ItaFundi</a>, a NyumbHUTni service.</p>
     </div>
   </footer>
 
